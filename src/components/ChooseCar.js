@@ -5,8 +5,35 @@ class ChooseCar extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            bruteCarData: this.props.bruteCarData
+            bruteCarData: this.props.bruteCarData,
+            setMapData: this.props.setMapData
         };
+    }
+
+    generateMapData(courses, clickedCourse){
+        const selectedCourse = courses[clickedCourse];
+        const {gps} = selectedCourse;
+        
+        const response = gps.map(
+            coordinate => {
+                const {speed, direction} = coordinate;
+
+                return {
+                    lng: coordinate.longitude,
+                    lat: coordinate.latitude,
+                    speed,
+                    direction,
+                }
+            }
+        );
+        
+        return response;
+    }
+
+    updateMapData({courses}, clickedCourse){
+
+        const mapData = this.generateMapData(courses, clickedCourse);
+        this.state.setMapData(mapData);
     }
 
     getFormatedDuration(durationInSeconds){
@@ -37,6 +64,7 @@ class ChooseCar extends React.Component {
                             <div 
                                 key={courseIndex}
                                 className="h-5/6 bg-gray-100 p-2 m-4 border-4 box-content cursor-pointer"
+                                onClick={event => this.updateMapData(this.state.bruteCarData, courseIndex)}    
                             >
                                 <h3>Duração: { this.getFormatedDuration(course.duration) }m</h3>
                                 <h3>Distância: {course.distance}m</h3>

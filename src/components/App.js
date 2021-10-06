@@ -6,17 +6,26 @@ import carData from "../data/getCarData"
 
 class App extends React.Component {
 
-    state = {
-        bruteCarData: carData
+    constructor(props){
+        super(props);
+        this.state = {
+            bruteCarData: carData,
+            mapData: [{}]
+        };
+
     };
 
+    setMapData = (mapData) => { this.setState( {mapData} ) };
+    
     render(){
-
         return(
             <div className="App h-screen">
-                <LoadedMap/>
+                <LoadedMap
+                    mapData={this.state.mapData}
+                />
                 <ChooseCar 
                     bruteCarData={this.state.bruteCarData}
+                    setMapData={this.setMapData}
                 />
             </div>
         )
