@@ -19,8 +19,8 @@ class ChooseCar extends React.Component {
                 const {speed, direction} = coordinate;
 
                 return {
-                    lng: coordinate.longitude,
-                    lat: coordinate.latitude,
+                    lng: Number(coordinate.longitude),
+                    lat: Number(coordinate.latitude),
                     speed,
                     direction,
                 }
@@ -53,7 +53,7 @@ class ChooseCar extends React.Component {
     }
     
     render() {
-        
+
         const {courses} = this.state.bruteCarData || {courses: []};
 
         return (

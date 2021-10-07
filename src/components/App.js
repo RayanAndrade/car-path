@@ -10,7 +10,10 @@ class App extends React.Component {
         super(props);
         this.state = {
             bruteCarData: carData,
-            mapData: [{}]
+            mapData: [{
+                lat: -19.944824,
+                lng: -43.941165
+            }]
         };
 
     };
