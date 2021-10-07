@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/index.css"
 import ChooseCar from "./ChooseCar";
-import LoadedMap from "./Map";
+import Map from "./Map";
 import carData from "../data/getCarData"
 
 class App extends React.Component {
@@ -23,7 +23,7 @@ class App extends React.Component {
     render(){
         return(
             <div className="App h-screen">
-                <LoadedMap
+                <Map
                     mapData={this.state.mapData}
                 />
                 <ChooseCar 

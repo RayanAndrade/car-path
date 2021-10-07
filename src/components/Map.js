@@ -22,8 +22,8 @@ class Map extends React.Component {
                         googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAP_KEY}
                     >
                         <GoogleMap
-                            mapContainerStyle={{width: '100%', height: '100%'}}
-                            center={ this.props.mapData[0]}
+                            mapContainerStyle={{ width: '100%', height: '100%' }}
+                            center={this.props.mapData[0]}
                             zoom={15}
                         >
                             <Marker
