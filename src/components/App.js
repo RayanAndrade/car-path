@@ -13,18 +13,20 @@ class App extends React.Component {
             mapData: [{
                 lat: -19.944824,
                 lng: -43.941165
-            }]
+            }],
+            initialDate: new Date()
         };
 
     };
 
-    setMapData = (mapData) => { this.setState( {mapData} ) };
+    setMapData = (mapData, initialDate) => { this.setState( {mapData, initialDate: new Date()} ) };
     
     render(){
         return(
             <div className="App h-screen">
                 <Map
                     mapData={this.state.mapData}
+                    initialDate={this.state.initialDate}
                 />
                 <ChooseCar 
                     bruteCarData={this.state.bruteCarData}
