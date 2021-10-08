@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Car path
+## Teste técnico Softruck cujo objetivo é realizar a animação de um carro em um mapa de acordo com o caminho escolhido
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tabela de conteúdos
+=================
+* [Status projeto](#status-projeto)
+* [Features](#features)
+* [Bibliotecas/Frameworks](#bibliotecas-e-frameworks)
+* [Modelagem de dados](#modelagem-de-dados)
+* [Tecnologias](#tecnologias)
 
-## Available Scripts
 
-In the project directory, you can run:
+### Status projeto
 
-### `npm start`
+🚧 Em construção... 🚧
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Features
 
-### `npm test`
+- [x] Divisão da tela entre componentes
+- [x] Compartilhamento de dados entre componentes
+- [x] Mapa gerado na tela
+- [x] Carro adicionado no lugar do marcador padrão
+- [x] Movimentação do carro ao clicar no caminho
+- [ ] Animação do carro conforme passa pelo trajeto
+- [ ] Utilizar velocidade do carro para realizar o trajeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Bibliotecas e Frameworks
 
-### `npm run build`
+- [React](https://pt-br.reactjs.org/) Utilizada devido a grande quantidade de material para estudo e pelo fato de possuir uma comunidade muito ativa. Foi de grande impacto para a curva de aprendizado durante o projeto.
+- [Tailwind](https://tailwindcss.com) Utilizado devido a baixa complexidade de aprendizado e pelo grande impacto em um tempo pequeno (evitando muito tempo sendo gasto com a estilização da página de maneira desnecessária).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Modelagem de dados
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Os componentes foram divididos em relação as suas responsabilidades.
+- App: É um componente pai, será o único componente injetado diretamente no front. É o componente pai dos demais. Seu state reflete a troca de dados entre os componentes filhos.
+- ChooseCar: É o componente filho responsável por receber os dados brutos da aplicação, exibir as rotas na tela para o usuário e, ao selecionar a rota, enviar os dados para o componente do mapa (utilizando state do pai como intermédio, sempre).
+- Map: É o componente filho responsável por receber os dados da localização escolhida pelo usuário e exibi-la com a animação do carro.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Os dados fonte para a aplicação são gerados a partir de um arquivo que simula a chamada de uma API e retorna os devidos dados. Armazenados dentro da camada de data, caso necessário expandir a fonte de dados da aplicação.
 
-### `npm run eject`
+As imagens são guardadas na pasta img e possuem uma versão em png (para o desenvolvedor) e um base64 (para ser renderizado no front).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Os estilos estão na camada styles, onde estilos genéricos se encontram no index.css e estilos específicos de algum componente são declarados na camada e importados pelo index. 
